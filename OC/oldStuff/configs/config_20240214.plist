@@ -8,6 +8,14 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>SSDT-PLUG-MANUAL.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-PLUG-MANUAL.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>SSDT-AWAC-DISABLE-MANUAL.aml</string>
 				<key>Enabled</key>
 				<true/>
@@ -29,14 +37,6 @@
 				<true/>
 				<key>Path</key>
 				<string>SSDT-PMC-MANUAL.aml</string>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>SSDT-GPU-DISABLE-MANUAL.aml</string>
-				<key>Enabled</key>
-				<true/>
-				<key>Path</key>
-				<string>SSDT-GPU-DISABLE-MANUAL.aml</string>
 			</dict>
 		</array>
 		<key>Delete</key>
@@ -144,7 +144,7 @@
 			<key>ResetHwSig</key>
 			<false/>
 			<key>ResetLogoStatus</key>
-			<false/>
+			<true/>
 			<key>SyncTableIds</key>
 			<false/>
 		</dict>
@@ -247,18 +247,19 @@
 	<dict>
 		<key>Add</key>
 		<dict>
+			<key> PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
+			<dict>
+				<key>disable-gpu</key>
+				<true/>
+			</dict>
 			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
 			<dict>
+				<key>AAPL,GfxYTile</key>
+				<data>AQAAAA==</data>
 				<key>AAPL,ig-platform-id</key>
 				<data>BwCbPg==</data>
 				<key>device-id</key>
-				<data>mz4AAA==</data>
-				<key>device_type</key>
-				<string>VGA compatible controller</string>
-				<key>enable-hdmi20</key>
-				<data>AQAAAA==</data>
-				<key>enable-metal</key>
-				<data>AQAAAA==</data>
+				<data>kj4AAA==</data>
 				<key>force-online</key>
 				<data>AQAAAA==</data>
 				<key>framebuffer-con0-busid</key>
@@ -458,13 +459,13 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>CPUFriend.kext</string>
+				<string>CpuTscSync.kext</string>
 				<key>Comment</key>
-				<string>V1.2.7 | CPUFriend.kext</string>
+				<string>V1.1.0 | CpuTscSync.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/CPUFriend</string>
+				<string>Contents/MacOS/CpuTscSync</string>
 				<key>MaxKernel</key>
 				<string></string>
 				<key>MinKernel</key>
@@ -476,27 +477,9 @@
 				<key>Arch</key>
 				<string>Any</string>
 				<key>BundlePath</key>
-				<string>CPUFriendDataProvider.kext</string>
+				<string>USBPorts.kext</string>
 				<key>Comment</key>
-				<string>V1.0.1 | CPUFriendDataProvider.kext</string>
-				<key>Enabled</key>
-				<true/>
-				<key>ExecutablePath</key>
-				<string></string>
-				<key>MaxKernel</key>
-				<string></string>
-				<key>MinKernel</key>
-				<string></string>
-				<key>PlistPath</key>
-				<string>Contents/Info.plist</string>
-			</dict>
-			<dict>
-				<key>Arch</key>
-				<string>Any</string>
-				<key>BundlePath</key>
-				<string>USBPorts_all.kext</string>
-				<key>Comment</key>
-				<string>USBPorts_all.kext</string>
+				<string>V1.0 | USBPorts.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
@@ -892,7 +875,7 @@
 			<key>ExtendBTFeatureFlags</key>
 			<false/>
 			<key>ExternalDiskIcons</key>
-			<false/>
+			<true/>
 			<key>ForceAquantiaEthernet</key>
 			<false/>
 			<key>ForceSecureBootScheme</key>
@@ -914,7 +897,7 @@
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>Scheme</key>
 		<dict>
@@ -1117,7 +1100,7 @@
 				<key>SystemAudioVolume</key>
 				<data>Rg==</data>
 				<key>boot-args</key>
-				<string>-v keepsyms=1 alcid=1 swd_panic=1</string>
+				<string>-v keepsyms=1 alcid=1 swd_panic=1 -igfxmpc</string>
 				<key>csr-active-config</key>
 				<data>AAAAAA==</data>
 				<key>prev-lang:kbd</key>
@@ -1186,7 +1169,7 @@
 			<key>AdviseFeatures</key>
 			<false/>
 			<key>MLB</key>
-			<string>C02934301GUKGQGAD</string>
+			<string>C02021306GULNV91M</string>
 			<key>MaxBIOSVersion</key>
 			<false/>
 			<key>ProcessorType</key>
@@ -1198,11 +1181,11 @@
 			<key>SystemMemoryStatus</key>
 			<string>Auto</string>
 			<key>SystemProductName</key>
-			<string>iMac19,2</string>
+			<string>iMac19,1</string>
 			<key>SystemSerialNumber</key>
-			<string>C02Z8RYQJWDW</string>
+			<string>C02CR0QPJV3Q</string>
 			<key>SystemUUID</key>
-			<string>AE52728A-4804-49A0-BCCD-8175CB868BE9</string>
+			<string>8EC36EF5-291F-4B0A-9FE5-8A915D4344FA</string>
 		</dict>
 		<key>UpdateDataHub</key>
 		<true/>
